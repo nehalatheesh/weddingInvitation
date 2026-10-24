@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wedding Invitation | Sarah & Jonathan | 22 November 2026</title>
+  <meta name="description" content="With joy and gratitude to God, we invite you to celebrate the Holy Matrimony of Sarah Elizabeth and Jonathan David on Sunday, 22 November 2026.">
+  
+  <!-- Google Fonts: Cormorant Garamond, Great Vibes, Montserrat -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome for standard icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Floating Audio Controls Widget -->
+  <div id="audio-widget" class="audio-widget hidden" title="Toggle Wedding Music">
+    <button id="audio-toggle-btn" class="audio-btn" aria-label="Toggle background music">
+      <span class="disc-icon"><i class="fa-solid fa-compact-disc spin-animation"></i></span>
+      <span class="music-note-icon"><i class="fa-solid fa-music"></i></span>
+    </button>
+    <div class="audio-info">
+      <span class="track-title">Pachelbel's Canon in D</span>
+      <span class="track-status" id="track-status">Playing Music</span>
+    </div>
+  </div>
+
+  <!-- Audio Element (Canon in D) -->
+  <audio id="wedding-audio" preload="auto" loop>
+    <source src="assets/audio/canon_in_d.wav" type="audio/wav">
+  </audio>
+
+  <!-- Interactive Invitation Cover / Wax Seal Overlay -->
+  <div id="invitation-overlay" class="invitation-overlay">
+    <div class="overlay-backdrop"></div>
+    
+    <div class="envelope-card-wrapper" id="envelope-wrapper">
+      <div class="envelope-card">
+        <div class="envelope-ornament-top">
+          <span class="cross-icon">✝</span>
+        </div>
+        
+        <p class="envelope-script">In God's Grace & Love</p>
+        <p class="envelope-sub">You are cordially invited to celebrate the Holy Matrimony of</p>
+        
+        <h1 class="envelope-couple-names">Sarah & Jonathan</h1>
+        
+        <div class="envelope-divider">
+          <span class="divider-line"></span>
+          <span class="divider-gem">❖</span>
+          <span class="divider-line"></span>
+        </div>
+        
+        <p class="envelope-date">Sunday, 22 November 2026</p>
+        
+        <!-- Wax Seal Button -->
+        <div class="wax-seal-container">
+          <button id="open-invitation-btn" class="wax-seal-btn" aria-label="Open wedding invitation and play music">
+            <div class="wax-seal-inner">
+              <span class="wax-cross">✝</span>
+              <span class="wax-monogram">S & J</span>
+              <span class="wax-action">TAP TO OPEN</span>
+            </div>
+            <div class="wax-seal-ripple"></div>
+          </button>
+          <p class="open-instruction">
+            <i class="fa-solid fa-envelope-open-text"></i> Click to Open Invitation & Play Music
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Invitation Website (Revealed when envelope opens) -->
+  <main id="main-content" class="main-content blur-locked">
+    
+    <!-- Canvas for subtle falling flower petals & sparkling golden dust -->
+    <canvas id="petals-canvas" class="petals-canvas"></canvas>
+
+    <!-- Top Announcement Bar -->
+    <header class="announcement-header">
+      <div class="container text-center">
+        <div class="holy-cross-wrapper">
+          <span class="holy-cross">✝</span>
+        </div>
+        <p class="bible-verse">
+          &ldquo;Therefore what God has joined together, let no one separate.&rdquo;
+        </p>
+        <p class="verse-reference">Mark 10:9</p>
+      </div>
+    </header>
+
+    <!-- Hero Announcement Section -->
+    <section class="hero-section" id="hero">
+      <div class="container hero-container text-center">
+        
+        <div class="ornate-frame-top">
+          <span class="ornament-leaves">❦ ❖ ❦</span>
+        </div>
+
+        <p class="hero-pretitle">Together with their families, with praise and thanksgiving to the Lord</p>
+        
+        <div class="couple-title-group">
+          <h2 class="bride-name">Sarah Elizabeth</h2>
+          <span class="ampersand">&</span>
+          <h2 class="groom-name">Jonathan David</h2>
+        </div>
+
+        <p class="hero-invitation-text">
+          request the honour of your presence and prayers as they unite in
+        </p>
+        
+        <p class="holy-matrimony-badge">
+          THE SACRAMENT OF HOLY MATRIMONY
+        </p>
+
+        <!-- Couple Portrait Card -->
+        <div class="couple-portrait-wrapper">
+          <div class="portrait-card">
+            <div class="portrait-img-box">
+              <img src="assets/images/couple.jpg" alt="Sarah and Jonathan - Christian Wedding" class="portrait-img" loading="eager">
+              <div class="portrait-overlay-glow"></div>
+            </div>
+            <div class="portrait-caption">
+              <div class="family-info-grid">
+                <div class="family-column">
+                  <span class="family-role">Bride</span>
+                  <h3 class="family-member-name">Sarah Elizabeth</h3>
+                  <p class="parents-names">Daughter of Mr. Joseph & Mrs. Ruth Mathew</p>
+                </div>
+                <div class="family-separator">
+                  <span>✝</span>
+                </div>
+                <div class="family-column">
+                  <span class="family-role">Groom</span>
+                  <h3 class="family-member-name">Jonathan David</h3>
+                  <p class="parents-names">Son of Mr. David & Mrs. Mary Thomas</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Wedding Date & Countdown Section -->
+    <section class="date-countdown-section" id="date">
+      <div class="container text-center">
+        
+        <div class="date-card">
+          <div class="date-card-header">
+            <span class="calendar-icon"><i class="fa-regular fa-calendar-check"></i></span>
+            <p class="save-the-date-tag">SAVE OUR DATE</p>
+          </div>
+
+          <div class="calendar-display">
+            <div class="cal-day-name">SUNDAY</div>
+            <div class="cal-date-number">22</div>
+            <div class="cal-month-year">NOVEMBER 2026</div>
+          </div>
+
+          <p class="ceremony-time">
+            <i class="fa-regular fa-clock"></i> 10:30 AM IST (Morning Service)
+          </p>
+
+          <!-- Live Countdown Timer -->
+          <div class="countdown-wrapper">
+            <p class="countdown-heading">Counting down to our holy covenant:</p>
+            <div class="countdown-grid" id="countdown-clock">
+              <div class="count-box">
+                <span class="count-num" id="days">--</span>
+                <span class="count-label">Days</span>
+              </div>
+              <div class="count-divider">:</div>
+              <div class="count-box">
+                <span class="count-num" id="hours">--</span>
+                <span class="count-label">Hours</span>
+              </div>
+              <div class="count-divider">:</div>
+              <div class="count-box">
+                <span class="count-num" id="minutes">--</span>
+                <span class="count-label">Minutes</span>
+              </div>
+              <div class="count-divider">:</div>
+              <div class="count-box">
+                <span class="count-num" id="seconds">--</span>
+                <span class="count-label">Seconds</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Add to Calendar Buttons -->
+          <div class="calendar-actions">
+            <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Sarah+%26+Jonathan%27s+Holy+Matrimony&dates=20261122T050000Z/20261122T083000Z&details=Holy+Matrimony+service+and+nuptial+blessing+of+Sarah+Elizabeth+%26+Jonathan+David.+Please+join+us+in+prayer+and+celebration.&location=St.+Mary%27s+Cathedral" target="_blank" rel="noopener noreferrer" class="btn-cal google-cal" id="google-cal-btn">
+              <i class="fa-brands fa-google"></i> Add to Google Calendar
+            </a>
+            <button id="download-ics-btn" class="btn-cal ics-cal" aria-label="Download Apple or Outlook calendar event">
+              <i class="fa-solid fa-calendar-plus"></i> Download iCal / Outlook
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Church Venue & Ceremony Section -->
+    <section class="ceremony-section" id="ceremony">
+      <div class="container">
+        
+        <div class="section-title text-center">
+          <span class="section-subtitle">THE SACRED ASSEMBLY</span>
+          <h2 class="section-heading">Ceremony & Venue</h2>
+          <div class="gold-ornament">✦ ✝ ✦</div>
+        </div>
+
+        <div class="venue-card-wrapper">
+          <div class="venue-card">
+            
+            <div class="venue-image-box">
+              <img src="assets/images/church.jpg" alt="Cathedral Wedding Venue" class="venue-img" loading="lazy">
+              <div class="venue-badge">
+                <i class="fa-solid fa-church"></i> Holy Matrimony
+              </div>
+            </div>
+
+            <div class="venue-details text-center">
+              <h3 class="venue-name">St. Mary's Christian Cathedral</h3>
+              <p class="venue-address">
+                <i class="fa-solid fa-location-dot"></i> Cathedral Road, Sacred Heart Gardens, City Center
+              </p>
+              
+              <div class="schedule-summary">
+                <div class="schedule-item">
+                  <span class="schedule-time">10:30 AM</span>
+                  <span class="schedule-title">Nuptial Mass & Holy Covenant Service</span>
+                </div>
+                <div class="schedule-item">
+                  <span class="schedule-time">12:00 PM</span>
+                  <span class="schedule-title">Congratulations & Felicitations on Cathedral Lawn</span>
+                </div>
+              </div>
+
+              <div class="venue-action-buttons">
+                <a href="https://maps.google.com/?q=Cathedral+Church" target="_blank" rel="noopener noreferrer" class="btn-primary venue-btn" id="map-btn">
+                  <i class="fa-solid fa-map-location-dot"></i> Open in Google Maps
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Welcoming & Blessing Note Section -->
+    <section class="welcome-section" id="welcome">
+      <div class="container">
+        
+        <div class="welcome-card text-center">
+          <div class="welcome-icon">
+            <i class="fa-solid fa-dove"></i>
+          </div>
+          
+          <h2 class="welcome-heading">A Heartfelt Welcome</h2>
+          
+          <p class="welcome-message">
+            &ldquo;As we step into this holy covenant instituted by our Lord Jesus Christ, your loving presence, heartfelt blessings, and steadfast prayers mean the world to us. We warmly welcome each one of you to witness our vows and join our hearts in thanksgiving.&rdquo;
+          </p>
+
+          <p class="welcome-signature">
+            With love & prayers,<br>
+            <strong>Sarah & Jonathan</strong>
+          </p>
+        </div>
+
+        <!-- Simple Prayer & Blessing Guest Greetings -->
+        <div class="blessing-box">
+          <div class="blessing-header text-center">
+            <h3><i class="fa-solid fa-hands-praying"></i> Send a Blessing to the Couple</h3>
+            <p>Leave a warm prayer or congratulatory wish for Sarah & Jonathan</p>
+          </div>
+
+          <form id="blessing-form" class="blessing-form">
+            <div class="form-row">
+              <input type="text" id="guest-name" placeholder="Your Name / Family Name" required>
+            </div>
+            <div class="form-row">
+              <textarea id="guest-message" rows="3" placeholder="Write your warm prayer or blessing message..." required></textarea>
+            </div>
+            <button type="submit" class="btn-primary btn-submit-blessing" id="submit-blessing-btn">
+              <i class="fa-regular fa-paper-plane"></i> Send Blessing
+            </button>
+          </form>
+
+          <!-- Blessing list display -->
+          <div class="blessings-display-container">
+            <h4 class="blessings-count-header">Prayers & Wishes (<span id="blessings-count">0</span>)</h4>
+            <div id="blessings-list" class="blessings-list">
+              <!-- Dynamically rendered -->
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Holy Scripture & Footer -->
+    <footer class="wedding-footer text-center">
+      <div class="container">
+        <div class="footer-cross">✝</div>
+        <p class="footer-verse">
+          &ldquo;Love is patient, love is kind. It does not envy, it does not boast, it is not proud... Love never fails.&rdquo;
+        </p>
+        <p class="footer-verse-cit">1 Corinthians 13:4-8</p>
+        
+        <div class="footer-divider"></div>
+
+        <p class="footer-hashtag">#SarahWedsJonathan2026</p>
+        <p class="footer-date">Sunday, 22 November 2026</p>
+        <p class="footer-credit">Celebration of Christian Holy Matrimony</p>
+      </div>
+    </footer>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
